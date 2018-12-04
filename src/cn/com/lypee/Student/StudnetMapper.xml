@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--设置StudentMapper源接口-->
+<mapper namespace="cn.com.lypee.mapper.StudentMapper">
+    <select id="findStudentByNum" parameterType="java.lang.Integer" resultType="Student">
+        select * from studentdemo where `number`=#{number}
+    </select>
+
+    <insert id="insertStudent" parameterType="cn.com.lypee.Student.Student" >
+        insert into  studentdemo
+        values (#{number},#{name},#{tel},#{department})
+    </insert>
+
+    <delete id = "deleteStudentById" parameterType="java.lang.Integer">
+        delete from studentdemo where `number`=#{number}
+    </delete>
+
+    <update  id="updateStudent" parameterType="Student" >
+        update studentdemo set `name`= #{name} where `number`= #{number}
+    </update>
+</mapper>

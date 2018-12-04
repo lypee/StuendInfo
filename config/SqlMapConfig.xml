@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="dbconfig.properties">
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <property name="jurl" value="${jurl}"/>
+        <property name="driver" value="${driver}"/>
+    </properties>
+    <!--全局配置-->
+    <settings>
+        <!--开启深度加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--启用缓存-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+
+
+    <typeAliases>
+        <typeAlias type="cn.com.lypee.Student.Student" alias="Student"/>
+    </typeAliases>
+
+
+
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${jurl}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper resource="cn/com/lypee/Student/StudnetMapper.xml"/>
+    </mappers>
+
+</configuration>
